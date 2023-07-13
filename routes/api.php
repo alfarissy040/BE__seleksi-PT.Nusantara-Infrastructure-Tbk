@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/register', [AuthController::class, "register"]);
 Route::post('/login', [AuthController::class, "login"])->name("login");
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware('authApi')->group(function () {
     Route::delete('/logout', [AuthController::class, 'logout']);
     Route::resource('/todos', TodoController::class);
 });
